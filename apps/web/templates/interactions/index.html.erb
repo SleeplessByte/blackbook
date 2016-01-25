@@ -1,0 +1,52 @@
+<div class="ui text container" style="padding-top: 4rem">
+    <h1 class="ui header">Interactions</h1>
+    <p>These are the interactions that can appear during an encounter.</p>
+</div>
+
+<section class="ui container" style="padding-top: 4rem">
+    <div class="ui centered cards">
+
+        <% interactions_as_cards_each do |card| %>
+            <div class="ui link card">
+                <% if card.has_image? %>
+                    <%= link_to card.link, class: 'image' +( card.has_dimmer? ? ' blurring dimmable' : '' ) do
+                        card.image
+                    end %>
+                <% end %>
+
+                <div class="content">
+                    <% if card.has_header? %>
+                        <%= link_to card.link, class: 'header' do
+                           card.header
+                        end %>
+                    <% end %>
+
+                    <% if card.has_meta? %>
+                        <div class="meta">
+                            <%= card.meta %>
+                        </div>
+                    <% end %>
+
+                    <% if card.has_description? %>
+                        <div class="description">
+                            <%= card.description %>
+                        </div>
+                    <% end %>
+                </div>
+
+                <% if card.has_extra? %>
+                    <div class="extra content">
+                        <%= card.extra %>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
+    <div style="text-align: center; padding-top: 2rem;">
+        <%= link_to routes.new_interaction_path, class: 'ui labeled icon button' do
+            i( class: 'add icon') {}
+            span 'add interaction'
+        end %>
+    </div>
+</section>

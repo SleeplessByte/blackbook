@@ -1,0 +1,92 @@
+<header class="ui text container" style="padding-top: 4rem">
+    <h1 class="ui header"><%= name %></h1>
+    <p>Your first encounter was <%= when_was_first_encounter %> at <%= where_was_first_encounter %>.</p>
+    <p>
+      <%= link_to routes.edit_actor_path( actor_id ), class: 'ui labeled icon button primary small' do
+        i( class: 'pencil icon' ) {}
+        span 'edit'
+      end %>
+      <%= link_to routes.new_encounter_path( actor: actor_id ), class: 'ui labeled icon button' do
+        i( class: 'add icon') {}
+        span 'add encounter'
+      end %>
+    </p>
+</header>
+
+<section class="ui container actor" style="padding-top: 4rem">
+
+    <div class="ui centered cards">
+        <div class="ui link card">
+            <% if card.has_image? %>
+                <%= link_to card.link, class: 'image' +( card.has_dimmer? ? ' blurring dimmable' : '' ) do
+                    card.image
+                end %>
+            <% end %>
+
+            <div class="content">
+                <% if card.has_header? %>
+                    <%= link_to card.link, class: 'header' do
+                       card.header
+                    end %>
+                <% end %>
+
+                <% if card.has_meta? %>
+                    <div class="meta">
+                        <%= card.meta %>
+                    </div>
+                <% end %>
+
+                <% if card.has_description? %>
+                    <div class="description">
+                        <%= card.description %>
+                    </div>
+                <% end %>
+            </div>
+
+            <% if card.has_extra? %>
+                <div class="extra content">
+                    <%= card.extra %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+</section>
+
+<section class="ui text container encounters" style="padding-top: 4rem">
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>When</th>
+                <th>Where</th>
+                <th>What</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% encounters_each do |encounter| %>
+                <tr>
+                    <td><%= link_to when_was( encounter ), routes.encounter_path( encounter.id ) %></td>
+                    <td><%= link_to where_was( encounter ), routes.location_path( encounter.location_id ) %></td>
+                    <td><%= link_to what_was( encounter ), routes.encounter_path( encounter.id ) %></td>
+                    <td>
+                      <%= link_to routes.edit_encounter_path( encounter.id ), class: 'ui small icon button' do
+                          i( class: 'icon pencil' ) {}
+                      end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="4"><%= encounters_count %></td>
+            </tr>
+        </tfoot>
+    </table>
+</section>
+
+<section class="ui text container actions" style="padding-top: 4rem">
+    <%= link_to 'Back', routes.actors_path, class: 'ui button small' %>
+</section>

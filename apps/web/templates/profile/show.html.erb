@@ -1,0 +1,45 @@
+<div class="ui text container" style="padding-top: 4rem">
+    <h1 class="ui header">Profile</h1>
+
+    <div class="ui card">
+        <%= link_to routes.profile_path, class: 'image' do
+            profile_image
+        end %>
+
+        <div class="content">
+            <%= link_to routes.profile_path, class: 'header' do
+              profile_header
+            end %>
+            <div class="meta">
+                <%= profile_meta %>
+            </div>
+
+            <!--
+            <div class="description">
+                <%= profile_description %>
+            </div>
+            -->
+        </div>
+
+        <div class="extra content">
+            <%= link_to routes.actors_path do
+              i( class: 'user icon' ) {}
+              span actors_count
+            end %>
+
+            <%= link_to routes.locations_path do
+              i( class: 'map icon' ) {}
+              span locations_count
+            end %>
+        </div>
+    </div>
+
+    <%= link_to routes.new_encounter_path, class: 'ui labeled icon button' do
+      i( class: 'add icon' ) {}
+      span 'Add encounter'
+    end %>
+
+    <%= form_for :logout, routes.logout_path, method: :delete, style: 'display: inline-block;' do
+        submit 'logout', class: 'ui button red'
+    end %>
+</div>

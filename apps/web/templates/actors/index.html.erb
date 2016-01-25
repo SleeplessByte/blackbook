@@ -1,0 +1,96 @@
+<div class="ui text container" style="padding-top: 4rem">
+    <h1 class="ui header">Actors</h1>
+    <p>These are the actors you encountered with.</p>
+</div>
+
+<section class="ui container" style="padding-top: 4rem">
+    <div class="ui centered cards">
+
+        <style scoped>
+          .card a.image {
+            max-height: 290px;
+            overflow: hidden;
+          }
+        </style>
+
+        <% actors_as_cards_each do |card| %>
+            <div class="ui link card">
+                <% if card.has_image? %>
+                    <%= link_to card.link, class: 'image' +( card.has_dimmer? ? ' blurring dimmable' : '' ) do
+                        card.image
+                    end %>
+                <% end %>
+
+                <div class="content">
+                    <% if card.has_header? %>
+                        <%= link_to card.link, class: 'header' do
+                           card.header
+                        end %>
+                    <% end %>
+
+                    <% if card.has_meta? %>
+                        <div class="meta">
+                            <%= card.meta %>
+                        </div>
+                    <% end %>
+
+                    <% if card.has_description? %>
+                        <div class="description">
+                            <%= card.description %>
+                        </div>
+                    <% end %>
+                </div>
+
+                <% if card.has_extra? %>
+                    <div class="extra content">
+                        <%= card.extra %>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
+    <div style="text-align: center; padding-top: 2rem;">
+        <%= link_to routes.new_actor_path, class: 'ui labeled icon button' do
+            i( class: 'add icon') {}
+            span 'add actor'
+        end %>
+    </div>
+</section>
+
+<section class="ui text container" style="padding-top: 4rem; padding-bottom: 4rem;">
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>First</th>
+                <th>Last</th>
+                <th>Phone</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% actors_each do |actor| %>
+                <tr>
+                    <td><%= link_to actor_first_name( actor ), actor_path( actor ) %></td>
+                    <td><%= link_to actor_last_name( actor ), actor_path( actor ) %></td>
+                    <td><%= actor_phone( actor ) %></td>
+                    <td>
+                      <%= link_to edit_actor_path( actor ), class: 'ui small icon button' do
+                          i( class: 'icon pencil' ) {}
+                      end %>
+                      <%= link_to facebook_actor_path( actor ), class: 'ui small facebook icon button' do
+                        i( class: 'icon facebook' ) {}
+                      end if actor_has_facebook?( actor )%>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="4"><%= actors_count %></td>
+            </tr>
+        </tfoot>
+    </table>
+</section>
