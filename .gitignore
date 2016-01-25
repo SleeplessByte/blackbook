@@ -2,3 +2,5 @@
 /db/blackbook_test
 
 .idea
+.env.test
+.env.development
