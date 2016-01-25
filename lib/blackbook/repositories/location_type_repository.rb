@@ -1,3 +1,3 @@
 class LocationTypeRepository
-  include Lotus::Repository
+  include Hanami::Repository
 end

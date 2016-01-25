@@ -1,5 +1,5 @@
 class EncounterRepository
-  include Lotus::Repository
+  include Hanami::Repository
 
   def self.find_by_actor( actor_id )
     query do

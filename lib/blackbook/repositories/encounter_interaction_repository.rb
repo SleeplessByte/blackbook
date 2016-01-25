@@ -1,5 +1,5 @@
 class EncounterInteractionRepository
-  include Lotus::Repository
+  include Hanami::Repository
 
   def self.find_by_encounter( id )
     query do

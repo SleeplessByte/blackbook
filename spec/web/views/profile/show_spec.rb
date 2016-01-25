@@ -3,7 +3,7 @@ require_relative '../../../../apps/web/views/profile/show'
 
 describe Web::Views::Profile::Show do
   let(:exposures) { Hash[ user: User.new( username: 'Foo', email: 'foo@example.tld', id: 1 )] }
-  let(:template)  { Lotus::View::Template.new('apps/web/templates/profile/show.html.erb') }
+  let(:template)  { Hanami::View::Template.new('apps/web/templates/profile/show.html.erb') }
   let(:view)      { Web::Views::Profile::Show.new(template, exposures) }
   let(:rendered)  { view.render }
   let(:pattern)   { /<img src="http:\/\/www\.gravatar\.com\/avatar\/([A-z0-9]+)\?s=290">/ }

@@ -1,8 +1,8 @@
 require 'bcrypt'
 
 class User
-  include Lotus::Entity
-  include Lotus::Validations
+  include Hanami::Entity
+  include Hanami::Validations
   include BCrypt
 
   attribute :username,        type: String, presence: true

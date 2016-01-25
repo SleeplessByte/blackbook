@@ -1,7 +1,7 @@
 module Validations
   module Messages
 
-    # @param [Lotus::Validations::Error] error
+    # @param [Hanami::Validations::Error] error
     # @return [String] the message
     def display_error( error )
       attribute = error.attribute_name

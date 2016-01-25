@@ -2,7 +2,7 @@ require 'bcrypt'
 require_relative 'entities/user'
 
 class SignUp
-  include Lotus::Validations
+  include Hanami::Validations
   include BCrypt
 
   attribute :password, presence: true, size: (9...64), confirmation: true

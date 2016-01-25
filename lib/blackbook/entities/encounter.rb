@@ -1,6 +1,6 @@
 class Encounter
-  include Lotus::Entity
-  include Lotus::Validations
+  include Hanami::Entity
+  include Hanami::Validations
 
   attribute :actor_id,        type: Integer,  presence: true
   attribute :location_id,     type: Integer

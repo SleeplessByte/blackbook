@@ -8,7 +8,7 @@ describe Actor do
     actor.name_last.must_equal 'Bar'
   end
 
-  describe Lotus::Validations do
+  describe Hanami::Validations do
 
     before do
       @actor = Actor.new( {} )

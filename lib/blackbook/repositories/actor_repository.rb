@@ -1,5 +1,5 @@
 class ActorRepository
-  include Lotus::Repository
+  include Hanami::Repository
 
   def self.find_for_user( user_id )
     query do

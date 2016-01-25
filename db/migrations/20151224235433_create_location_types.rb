@@ -1,4 +1,4 @@
-Lotus::Model.migration do
+Hanami::Model.migration do
   change do
     create_table :location_types do
       primary_key :id

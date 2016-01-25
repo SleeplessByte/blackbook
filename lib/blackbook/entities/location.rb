@@ -1,6 +1,6 @@
 class Location
-  include Lotus::Entity
-  include Lotus::Validations
+  include Hanami::Entity
+  include Hanami::Validations
 
   attribute :location_type_id, type: Integer, presence: true
   attribute :user_id,         type: Integer, presence: true

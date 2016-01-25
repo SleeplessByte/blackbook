@@ -1,10 +1,10 @@
-require 'lotus/view'
-require 'lotus/helpers'
+require 'hanami/view'
+require 'hanami/helpers'
 
 module Cards
   class Card
-    include Lotus::Presenter
-    include Lotus::Helpers
+    include Hanami::Presenter
+    include Hanami::Helpers
     include TimeDistanceHelper
     include GravatarHelper
 

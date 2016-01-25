@@ -1,6 +1,6 @@
 class Actor
-  include Lotus::Entity
-  include Lotus::Validations
+  include Hanami::Entity
+  include Hanami::Validations
 
   attribute :user_id,         type: Integer,  presence: true
   attribute :name_first,      type: String,   presence: true

@@ -1,6 +1,6 @@
 class Interaction
-  include Lotus::Entity
-  include Lotus::Validations
+  include Hanami::Entity
+  include Hanami::Validations
 
   attribute :name,          type: String,  presence: true
   attribute :symbol,        type: String

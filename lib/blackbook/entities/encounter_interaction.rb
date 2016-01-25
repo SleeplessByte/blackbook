@@ -1,6 +1,6 @@
 class EncounterInteraction
-  include Lotus::Entity
-  include Lotus::Validations
+  include Hanami::Entity
+  include Hanami::Validations
 
   attribute :interaction_id,  type: Integer,  presence: true
   attribute :encounter_id,    type: Integer,  presence: true
