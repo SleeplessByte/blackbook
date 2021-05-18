@@ -90,6 +90,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.4.0)
+    bcrypt (3.1.10)
     bcrypt (3.1.10-x64-mingw32)
     capybara (2.6.0)
       addressable
@@ -111,10 +112,15 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    nio4r (2.5.7)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
     nokogiri (1.6.7.2-x64-mingw32)
       mini_portile2 (~> 2.0.0.rc2)
+    pg (0.18.4)
     pg (0.18.4-x64-mingw32)
-    puma (2.15.3)
+    puma (5.3.1)
+      nio4r (~> 2.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -126,11 +132,11 @@ GEM
     tilt (2.0.2)
     url_mount (0.2.1)
       rack
-    wdm (0.1.1)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
@@ -150,4 +156,3 @@ DEPENDENCIES
   pg
   puma
   rake
-  wdm (>= 0.1.0)
